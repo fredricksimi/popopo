@@ -51,9 +51,9 @@ jobs:
     steps:
       - checkout
       - run yum install -y tar gzip
-      attach_workspace:
-        at: ~/
-      - run:
+    attach_workspace:
+      at: ~/
+    -run:
           name: Destroy the previous S3 bucket and Cloudformation stack.
           command: |
             export OldBucketID=$(cat ~/textfile.txt)
